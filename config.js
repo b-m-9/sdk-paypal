@@ -1,0 +1,1 @@
+module.exports = ["public_key", "secret_key"];
