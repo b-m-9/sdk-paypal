@@ -1,6 +1,6 @@
 {
   "name": "sdk-paypal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PayPal SDK",
   "main": "index.js",
   "directories": {
