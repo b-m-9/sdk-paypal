@@ -1,30 +1,36 @@
 ### Installation
 ```
-npm install --save sdk-liqpay
+npm install --save sdk-paypal
 ```
 require module
 ```javascript
-const Liqpay = require('sdk-liqpay');
+const PayPal = require('sdk-paypal');
 ```
 ## Merchant Documentation:
 Init
 ```javascript
-const liqpayMerchant = new Liqpay.merchant('i37338111051', 'Secret', {debug: false});
+
+const PaypalMerchant = new Paypal.Merchant({
+    mode: "sandbox",
+    client_id: 'Ac-AXyglk7AeZCL3fbR8ovtCh1A-3t2EKVqjTvag2lLSQ8Rxm7B7aIVromgHGj0DiiPdxQdJdPEiXeOu',
+    client_secret: 'EGs3jRM6VCuNllsDfbExDlTgHQ2md3_8Ywg97ThBCmBrJg9kHJv-YNOLRk1VZhkiQx6X9JgU7_eF7BaT',
+    callback: {
+        error: 'https://error.com',
+        success: 'https://success.com'
+    }
+}, {debug: false});
 ```
 ### Create payment
 ```javascript
 
-liqpayMerchant
+PaypalMerchant
     .getOrderId({
         amount: 1,
-        currency: 'UAH',
+        currency: 'USD',
         description: 'MIT SDK NODE TEST'
     })
     .then(res => {
-        return liqpayMerchant.formaterData(res);
-    })
-    .then(res => {
-        return liqpayMerchant.createPaymet(res)
+        return PaypalMerchant.createPaymet(res)
     })
     .then(console.log)
     .catch((error) => {
@@ -53,5 +59,3 @@ function payment(param) {
     form.submit();
 }
 ```
-
-## Donate: https://www.liqpay.ua/ru/checkout/i37338111051

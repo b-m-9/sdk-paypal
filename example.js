@@ -1,17 +1,22 @@
-const Liqpay = require('./index');
-const liqpayMerchant = new Liqpay.merchant('i37338111051', 'secret', {debug: true});
+const Paypal = require('./index');
+const PaypalMerchant = new Paypal.Merchant({
+    mode: "sandbox",
+    client_id: '__ClientId',
+    client_secret: '__Secret',
+    callback: {
+        error: 'https://error.com',
+        success: 'https://success.com'
+    }
+}, {debug: false=});
 
-liqpayMerchant
+PaypalMerchant
     .getOrderId({
         amount: 1,
-        currency: 'UAH',
+        currency: 'USD',
         description: 'MIT SDK NODE TEST'
     })
     .then(res => {
-        return liqpayMerchant.formaterData(res);
-    })
-    .then(res => {
-        return liqpayMerchant.createPaymet(res)
+        return PaypalMerchant.createPaymet(res)
     })
     .then(console.log)
     .catch((error) => {
