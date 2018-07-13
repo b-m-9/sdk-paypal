@@ -12,8 +12,8 @@ Init
 
 const PaypalMerchant = new Paypal.Merchant({
     mode: "sandbox",
-    client_id: '__client_id',
-    client_secret: '__client_secret',
+    client_id: 'Ac-AXyglk7AeZCL3fbR8ovtCh1A-3t2EKVqjTvag2lLSQ8Rxm7B7aIVromgHGj0DiiPdxQdJdPEiXeOu',
+    client_secret: 'EGs3jRM6VCuNllsDfbExDlTgHQ2md3_8Ywg97ThBCmBrJg9kHJv-YNOLRk1VZhkiQx6X9JgU7_eF7BaT',
     callback: {
         error: 'https://error.com',
         success: 'https://success.com'
